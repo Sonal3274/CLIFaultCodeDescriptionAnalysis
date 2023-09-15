@@ -1,0 +1,15 @@
+Engine misfire - Replace ignition coils.
+Low battery voltage - Check battery connections.
+Brake system error - Inspect brake fluid level.
+Transmission overheating - Check transmission fluid.
+Airbag system fault - Verify airbag sensor connections.
+Tire pressure warning - Inflate tires to recommended levels.
+ABS sensor malfunction - Test and replace ABS sensor.
+Check engine light - Scan for diagnostic trouble codes (DTCs).
+Steering system error - Inspect power steering fluid.
+Fuel system lean condition - Check for vacuum leaks.
+Oxygen sensor fault - Replace faulty oxygen sensor.
+Overheating warning - Check coolant level and thermostat.
+Emission system error - Inspect for loose connections.
+Suspension system fault - Check shocks and struts.
+Oil pressure low - Check oil level and oil pressure sensor.
