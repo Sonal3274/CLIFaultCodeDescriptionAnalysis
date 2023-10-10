@@ -6,7 +6,6 @@ described in the challenge provided.
 
 ## Table of Contents
 - [Requirements](#Requirements)
-- [Getting Started](#Getting Started)
 - [Prerequisites](#Prerequisites)
 - [Installation](#Installation)
 - [Usage](#Usage)
@@ -20,8 +19,6 @@ described in the challenge provided.
 - This program is written in Kotlin, a statically typed language.
 - Ensure that you have the Kotlin compiler installed to build and run the program.
 - This program does not use any dynamically typed languages such as Python or JavaScript.
-
-## Getting Started
 
 ## Prerequisites
 
