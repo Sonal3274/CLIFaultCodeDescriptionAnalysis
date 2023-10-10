@@ -1,0 +1,11 @@
+Top Sequences:
+  - abs
+  - abs sensor
+  - abs sensor malfunction
+  - abs sensor malfunction   test
+  - abs sensor malfunction   test and
+  - abs sensor malfunction   test and replace
+  - abs sensor malfunction   test and replace abs
+  - abs sensor malfunction   test and replace abs sensor.
+  - abs sensor malfunction   test and replace abs sensor. check
+  - abs sensor malfunction   test and replace abs sensor. check engine
