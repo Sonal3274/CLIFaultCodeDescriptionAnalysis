@@ -10,16 +10,8 @@ described in the challenge provided.
 - [Prerequisites](#Prerequisites)
 - [Installation](#Installation)
 - [Usage](#Usage)
-- [Executing the Program](#Executing the Program)
 - [Functionality](#Functionality)
 - [Documentation](#Documentation)
-- [File-Level Comments](#File-Level Comments)
-- [Function-Level Comments](#Function-Level Comments)
-- [Inline Comments](#Inline Comments)
-- [Parameter Comments](#Parameter Comments)
-- [Return Value Comments](#Return Value Comments)
-- [Function-Level Comments](#Function-Level Comments)
-- [Exception Handling Comments](#Exception Handling Comments)
 - [License](#License)
 
 
@@ -29,7 +21,7 @@ described in the challenge provided.
 - Ensure that you have the Kotlin compiler installed to build and run the program.
 - This program does not use any dynamically typed languages such as Python or JavaScript.
 
-# Getting Started
+## Getting Started
 
 ## Prerequisites
 
@@ -46,7 +38,6 @@ git clone https://github.com/Sonal3274/CLIFaultCodeDescriptionAnalysis.git
 
 ## Usage
 
-### Executing the Program
 Specify the input text file (input.txt) containing Fault Code Descriptions.
 Specify the directory where output CSV files will be stored.
 Run the program using the following command:
