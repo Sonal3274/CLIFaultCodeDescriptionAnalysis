@@ -2,6 +2,9 @@ import java.io.File
 import java.io.FileWriter
 import java.io.IOException
 
+/**
+ * Main function to execute the Fault Code Description Analysis CLI program.
+ */
 fun main() {
     // Specify the paths for input.txt and output folder
     val inputFilePath = "src/path/to/input.txt"
@@ -14,6 +17,7 @@ fun main() {
         // Delete existing CSV files in the output folder
         deleteExistingCSVFiles(outputFolderPath)
 
+        // Extract word sequences from the input text
         val wordSequences = extractWordSequences(inputText)
 
         // Find the maximum sequence and count lengths for formatting
@@ -22,7 +26,13 @@ fun main() {
         // Write the word sequences to CSV files with proper alignment and sorting
         for ((length, sequences) in wordSequences) {
             val outputFileName = "occurrence_length_$length.csv"
-            writeWordSequencesToCSV(sequences, outputFileName, maxSequenceLength, maxCountLength, outputFolderPath)
+            writeWordSequencesToCSV(
+                sequences,
+                outputFileName,
+                maxSequenceLength,
+                maxCountLength,
+                outputFolderPath
+            )
             println("Word sequences of length $length have been saved to $outputFileName.")
         }
 
@@ -42,6 +52,12 @@ fun main() {
     }
 }
 
+/**
+ * Extracts word sequences of varying lengths from the input text.
+ *
+ * @param inputText The input text to analyze.
+ * @return A map where the keys are sequence lengths, and the values are maps of word sequences and their counts.
+ */
 fun extractWordSequences(inputText: String): Map<Int, Map<String, Int>> {
     val wordSequences = mutableMapOf<Int, MutableMap<String, Int>>()
 
@@ -62,6 +78,12 @@ fun extractWordSequences(inputText: String): Map<Int, Map<String, Int>> {
     return wordSequences
 }
 
+/**
+ * Calculates the maximum sequence length and count length for formatting.
+ *
+ * @param wordSequences A map containing word sequences and their counts.
+ * @return A pair where the first element is the maximum sequence length, and the second element is the maximum count length.
+ */
 fun calculateMaxLengths(wordSequences: Map<Int, Map<String, Int>>): Pair<Int, Int> {
     var maxSequenceLength = 0
     var maxCountLength = 0
@@ -76,6 +98,15 @@ fun calculateMaxLengths(wordSequences: Map<Int, Map<String, Int>>): Pair<Int, In
     return Pair(maxSequenceLength, maxCountLength)
 }
 
+/**
+ * Writes word sequences to a CSV file with proper alignment and sorting.
+ *
+ * @param sequences The word sequences and their counts to be written.
+ * @param outputFileName The name of the output CSV file.
+ * @param maxSequenceLength The maximum sequence length for formatting.
+ * @param maxCountLength The maximum count length for formatting.
+ * @param outputFolderPath The path to the output folder.
+ */
 fun writeWordSequencesToCSV(
     sequences: Map<String, Int>,
     outputFileName: String,
@@ -83,7 +114,7 @@ fun writeWordSequencesToCSV(
     maxCountLength: Int,
     outputFolderPath: String
 ) {
-    val outputFilePath = "src/path/to/output/folder/$outputFileName"
+    val outputFilePath = "$outputFolderPath/$outputFileName"
     val fileWriter = FileWriter(outputFilePath)
 
     try {
@@ -116,6 +147,12 @@ fun writeWordSequencesToCSV(
     }
 }
 
+/**
+ * Reads all CSV files in the output folder and returns the top sequences.
+ *
+ * @param outputFolderPath The path to the output folder.
+ * @return A map where the keys are sequence lengths, and the values are lists of top word sequences.
+ */
 fun readAllCSVFiles(outputFolderPath: String): Map<Int, List<String>> {
     val topSequences = mutableMapOf<Int, List<String>>()
 
@@ -135,6 +172,12 @@ fun readAllCSVFiles(outputFolderPath: String): Map<Int, List<String>> {
     return topSequences
 }
 
+/**
+ * Reads a CSV file and returns a list of word sequences.
+ *
+ * @param csvFile The CSV file to read.
+ * @return A list of word sequences.
+ */
 fun readCSVFile(csvFile: File): List<String> {
     val sequences = mutableListOf<String>()
 
@@ -156,6 +199,12 @@ fun readCSVFile(csvFile: File): List<String> {
     return sequences
 }
 
+/**
+ * Writes the top sequences to a file.
+ *
+ * @param topSequences A map containing top sequences.
+ * @param outputFolderPath The path to the output folder.
+ */
 fun writeTopSequencesToFile(topSequences: Map<Int, List<String>>, outputFolderPath: String) {
     val outputFilePath = "$outputFolderPath/top_sequences.txt"
 
@@ -182,6 +231,13 @@ fun writeTopSequencesToFile(topSequences: Map<Int, List<String>>, outputFolderPa
     }
 }
 
+/**
+ * Counts the number of lines affected by top sequences in the input file.
+ *
+ * @param inputFilePath The path to the input file.
+ * @param topSequences A map containing top sequences.
+ * @return The number of lines affected.
+ */
 fun countLinesAffected(inputFilePath: String, topSequences: Map<Int, List<String>>): Int {
     var linesAffected = 0
 
@@ -209,6 +265,13 @@ fun countLinesAffected(inputFilePath: String, topSequences: Map<Int, List<String
 
     return linesAffected
 }
+
+/**
+ * Writes the number of lines affected to a file.
+ *
+ * @param linesAffected The number of lines affected.
+ * @param outputFolderPath The path to the output folder.
+ */
 fun writeLinesAffectedToFile(linesAffected: Int, outputFolderPath: String) {
     val linesAffectedFilePath = "$outputFolderPath/lines_affected.txt"
 
@@ -223,6 +286,12 @@ fun writeLinesAffectedToFile(linesAffected: Int, outputFolderPath: String) {
         linesAffectedWriter.close()
     }
 }
+
+/**
+ * Deletes existing CSV files in the output folder.
+ *
+ * @param outputFolderPath The path to the output folder.
+ */
 fun deleteExistingCSVFiles(outputFolderPath: String) {
     val outputFolder = File(outputFolderPath)
     val csvFiles = outputFolder.listFiles { file -> file.name.startsWith("occurrence_length_") && file.name.endsWith(".csv") }
